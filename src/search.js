@@ -113,20 +113,16 @@
             sb.replaceBox.style.display = isReplace ? "" : "none";
             sb[isReplace ? "replaceInput" : "searchInput"].focus();
           },
-          "Ctrl-G|Cmd-G": function () {
-            sb.findNext();
-          },
           "Ctrl-Shift-G|Cmd-Shift-G": function () {
             sb.findPrev();
+          },
+          "Ctrl-G|Cmd-G": function () {
+            sb.findNext();
           },
           Esc: function () {
             setTimeout(function () {
               sb.hide();
             });
-          },
-          Enter: function () {
-            if (sb.activeInput === sb.replaceInput) sb.replace();
-            sb.findNext();
           },
           "Shift-Enter": function () {
             if (sb.activeInput === sb.replaceInput) sb.replace();
@@ -135,6 +131,10 @@
           "Alt-Enter": function () {
             if (sb.activeInput === sb.replaceInput) sb.replaceAll();
             sb.findAll();
+          },
+          Enter: function () {
+            if (sb.activeInput === sb.replaceInput) sb.replace();
+            sb.findNext();
           },
           Tab: function () {
             if (self.activeInput === self.replaceInput)
